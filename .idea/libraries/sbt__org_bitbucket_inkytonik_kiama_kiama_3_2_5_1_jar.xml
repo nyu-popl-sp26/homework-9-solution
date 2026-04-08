@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: org.bitbucket.inkytonik.kiama:kiama_3:2.5.1:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="org.bitbucket.inkytonik.kiama" artifactId="kiama_3" version="2.5.1" baseVersion="2.5.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/bitbucket/inkytonik/kiama/kiama_3/2.5.1/kiama_3-2.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/bitbucket/inkytonik/kiama/kiama_3/2.5.1/kiama_3-2.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

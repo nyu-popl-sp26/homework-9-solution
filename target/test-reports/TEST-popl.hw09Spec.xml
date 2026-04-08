@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite hostname="10-21-112-0.dynapool.wireless.nyu.edu" name="popl.hw09Spec" tests="42" errors="0" failures="0" skipped="0" time="0.35" timestamp="2026-04-08T16:28:57">
+          <properties>
+      <property name="java.specification.version" value="25"/><property name="sun.jnu.encoding" value="UTF-8"/><property name="java.class.path" value="/usr/local/Cellar/sbt/1.12.1/libexec/bin/sbt-launch.jar"/><property name="java.vm.vendor" value="Homebrew"/><property name="sun.arch.data.model" value="64"/><property name="jline.shutdownhook" value="false"/><property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/><property name="user.timezone" value="America/New_York"/><property name="java.vm.specification.version" value="25"/><property name="os.name" value="Mac OS X"/><property name="sun.java.launcher" value="SUN_STANDARD"/><property name="user.country" value="US"/><property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib"/><property name="sun.java.command" value="/usr/local/Cellar/sbt/1.12.1/libexec/bin/sbt-launch.jar"/><property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="jdk.debug" value="release"/><property name="sun.cpu.endian" value="little"/><property name="user.home" value="/Users/elaineli"/><property name="user.language" value="en"/><property name="sbt.script" value="/usr/local/Cellar/sbt/1.12.1/libexec/bin/sbt"/><property name="java.specification.vendor" value="Oracle Corporation"/><property name="sbt.ipcsocket.tmpdir" value="/var/folders/72/wjk0ydmn6j18cw1_h3z2_s7r0000gn/T/.sbta607487e/ipcsocket"/><property name="swoval.tmpdir" value="/var/folders/72/wjk0ydmn6j18cw1_h3z2_s7r0000gn/T/.sbta607487e/swoval"/><property name="java.version.date" value="2026-01-20"/><property name="java.home" value="/usr/local/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home"/><property name="file.separator" value="/"/><property name="java.vm.compressedOopsMode" value="Zero based"/><property name="line.separator" value="
+"/><property name="java.vm.specification.vendor" value="Oracle Corporation"/><property name="java.specification.name" value="Java Platform API Specification"/><property name="apple.awt.application.name" value="Boot"/><property name="jline.esc.timeout" value="0"/><property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/><property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="java.runtime.version" value="25.0.2"/><property name="user.name" value="elaineli"/><property name="stdout.encoding" value="UTF-8"/><property name="path.separator" value=":"/><property name="os.version" value="15.6.1"/><property name="jna.nosys" value="true"/><property name="java.runtime.name" value="OpenJDK Runtime Environment"/><property name="log4j.ignoreTCL" value="true"/><property name="file.encoding" value="UTF-8"/><property name="jnidispatch.path" value="/Users/elaineli/Library/Caches/JNA/temp/jna142223331769411384.tmp"/><property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/><property name="jna.platform.library.path" value="/usr/lib:/usr/lib"/><property name="java.vendor.version" value="Homebrew"/><property name="jna.loaded" value="true"/><property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/><property name="java.io.tmpdir" value="/var/folders/72/wjk0ydmn6j18cw1_h3z2_s7r0000gn/T/"/><property name="java.version" value="25.0.2"/><property name="user.dir" value="/Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution"/><property name="os.arch" value="x86_64"/><property name="sun.misc.unsafe.memory.access" value="allow"/><property name="java.vm.specification.name" value="Java Virtual Machine Specification"/><property name="native.encoding" value="UTF-8"/><property name="java.library.path" value="/Users/elaineli/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/><property name="java.vm.info" value="mixed mode, sharing"/><property name="stderr.encoding" value="UTF-8"/><property name="java.vendor" value="Homebrew"/><property name="java.vm.version" value="25.0.2"/><property name="stdin.encoding" value="UTF-8"/><property name="scala.ext.dirs" value="/Users/elaineli/.sbt/1.0/java9-rt-ext-homebrew_25_0_2"/><property name="sun.io.unicode.encoding" value="UnicodeBig"/><property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="java.class.version" value="69.0"/>
+    </properties>
+          <testcase classname="popl.hw09Spec" name="typeInfer should infer types of arithmetic expressions" time="0.046">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of inequality expressions" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of equality expressions" time="0.002">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should reject equalities involving functions" time="0.008">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of Boolean expressions" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of Seq expressions" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of Function expressions" time="0.002">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of Call expressions" time="0.002">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typInfer should reject programs that try to assign non-assignable expressions" time="0.175">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typeInfer should infer types of assignment expressions" time="0.006">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="typInfer should infer types for different parameter passing modes" time="0.06">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="And should return true only if both expressions are true" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Or should return true if either or both expressions are true" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Plus should add two number values and return a number" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Minus should subtract two number values and return a number" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Times should multiply two number values and return a number" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Div should divide two number values and return a number" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Eq should return true if two numerical values are the same" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Eq should return false if two numerical values are not the same" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Ne should return true if two numerical values are different" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Ne should return false if two numerical values are the same" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Lt should return true if the first expression is less than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Lt should return false if the first expression is not strictly less than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Lt should return false if two number values are the same" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Le should return true if the first expression is less than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Le should return false if the first expression is greater than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Le should return true if two number values are the same" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Gt should return true if the first expression is greater than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Gt should return false if the first expression is not strictly greater than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Gt should return false if two number values are the same" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Ge should return true if the first expression is greater than the second" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Ge should return false if the first expression is less than the second" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Ge should return true if two number values are the same" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="ConstDecl should extend the environment with the first expression results bound to the identifier, and then eval the second expression" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="If should eval the first expression if the conditional is true" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="If should eval the second expression if the conditional is false" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Seq should execute the first expression, followed by the second, and should eval to the second expression" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Neg should return the negation of a number value" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Not should return the compliment of a boolean value" time="0.0">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Call should evaluate a function using big-step semantics" time="0.001">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Call should handle recursive functions using big-step semantics" time="0.004">
+                      
+                    </testcase><testcase classname="popl.hw09Spec" name="Call should handle parameter passing modes" time="0.037">
+                      
+                    </testcase>
+          <system-out><![CDATA[]]></system-out>
+          <system-err><![CDATA[]]></system-err>
+        </testsuite>

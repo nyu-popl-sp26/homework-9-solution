@@ -1,0 +1,96 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, Some(126540aa-1b02-4db3-a47c-a0acaa68f208), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mhw09Spec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of arithmetic expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of inequality expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of equality expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reject equalities involving functions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of Boolean expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of Seq expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of Function expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of Call expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reject programs that try to assign non-assignable expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types of assignment expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should infer types for different parameter passing modes[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAnd[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true only if both expressions are true[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOr[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if either or both expressions are true[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPlus[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should add two number values and return a number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mMinus[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should subtract two number values and return a number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTimes[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should multiply two number values and return a number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDiv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should divide two number values and return a number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mEq[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if two numerical values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mEq[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if two numerical values are not the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if two numerical values are different[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if two numerical values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if the first expression is less than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if the first expression is not strictly less than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if two number values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if the first expression is less than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if the first expression is greater than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if two number values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if the first expression is greater than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if the first expression is not strictly greater than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGt[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if two number values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if the first expression is greater than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return false if the first expression is less than the second[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGe[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return true if two number values are the same[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mConstDecl[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should extend the environment with the first expression results bound to the identifier, and then eval the second expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIf[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should eval the first expression if the conditional is true[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIf[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should eval the second expression if the conditional is false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mSeq[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should execute the first expression, followed by the second, and should eval to the second expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNeg[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the negation of a number value[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNot[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the compliment of a boolean value[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCall[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should evaluate a function using big-step semantics[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCall[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle recursive functions using big-step semantics[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCall[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle parameter passing modes[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 611 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 42[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 42, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 1 s, completed Apr 8, 2026, 4:15:10 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m

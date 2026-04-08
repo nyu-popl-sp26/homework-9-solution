@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="homework-9-solution:main [file:///Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/]" external.linked.project.path="$MODULE_DIR$/../../.." external.root.project.path="$MODULE_DIR$/../../.." external.system.id="SBT" external.system.module.type="sbtSourceSet" type="JAVA_MODULE" version="4">
+  <component name="DisplayModuleName">
+    <option name="name" value="hw09-sol.main" />
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_15">
+    <output url="file://$MODULE_DIR$/../../../target/scala-3.8.1/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../src/main/scala" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../target/scala-3.8.1/resource_managed/main" />
+    <content url="file://$MODULE_DIR$/../../../target/scala-3.8.1/src_managed/main" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sbt: scala-sdk-3.8.1" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala3-library_3:3.8.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scalactic:scalactic_3:3.2.16:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_3:2.3.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.bitbucket.inkytonik.kiama:kiama_3:2.5.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parallel-collections_3:1.0.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:3.8.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.guava:guava:32.1.1-jre:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.guava:failureaccess:1.0.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.code.findbugs:jsr305:3.0.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.checkerframework:checker-qual:3.33.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.errorprone:error_prone_annotations:2.18.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.j2objc:j2objc-annotations:2.8:jar" level="project" />
+  </component>
+</module>

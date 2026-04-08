@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="separateProdTestSources" value="true" />
+    <profile name="sbt 1" modules="homework-9-solution_436,homework-9-solution_436.main,homework-9-solution_436.test,hw09-sol,hw09-sol.main,hw09-sol.test" />
+  </component>
+</project>

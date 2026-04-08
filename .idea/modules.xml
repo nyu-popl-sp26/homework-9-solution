@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.iml" filepath="$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.hw09-sol-build.iml" filepath="$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.hw09-sol-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.main.iml" filepath="$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.test.iml" filepath="$PROJECT_DIR$/.idea/modules/homework-9-solution/hw09-sol.test.iml" />
+    </modules>
+  </component>
+</project>
