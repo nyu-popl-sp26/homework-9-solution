@@ -8,11 +8,14 @@ abstract class JsApp:
   def init(): Unit = ()
   
   case class Config(debug: Boolean = false, 
+       typeCheck: Boolean = true,
        files: List[File] = Nil)
   
   val usage = """JakartaScript interpreter 3.0
     Usage: run [options] [<file>...]
       
+      -nt  | --notyping
+            Evaluate program without type-checking
       -d  | --debug
             Print debug messages
       -h  | --help
@@ -50,6 +53,8 @@ abstract class JsApp:
 
   def main(args: Array[String]): Unit =
     config = args.foldLeft(Some(Config()): Option[Config]) {
+      case (Some(c), "-nt") => Some(c.copy(typeCheck = false))
+      case (Some(c), "--notyping") => Some(c.copy(typeCheck = false))
       case (Some(c), "-d") => Some(c.copy(debug = true))
       case (Some(c), "--debug") => Some(c.copy(debug = true))
       case (Some(c), "-h") => None

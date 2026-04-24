@@ -2,7 +2,7 @@ package popl.js
 
 import org.bitbucket.inkytonik.kiama.output.PrettyPrinter
 import ast._
-import Bop._, Uop._, Typ._, PMode._, Mut._
+import Bop._, Uop._, Typ._, Mut._
 
 object print extends PrettyPrinter:
   override val defaultIndent = 2
@@ -24,6 +24,23 @@ object print extends PrettyPrinter:
       case Function(p, _, _, _) =>
         "[Function%s]".format(p match { case None => "" case Some(s) => ": " + s })
 
+  def prettyVal(m: Mem, v: Expr): String =
+    (v: @unchecked) match
+      case a @ Addr(_) if m.contains(a) =>
+        m(a) match
+          case v: Val => prettyVal(m, v)
+          case Obj(fs) =>
+            val pretty_fields =
+            fs map {
+              case (f, Str(s)) => f + ": '" + s + "'"
+              case (f, v) => f + ": " + prettyVal(m, v)
+            } reduceRight {
+              (s, acc) => s + ",\n  " + acc
+            }
+            "{ %s }".format(pretty_fields)
+      case _ => prettyVal(v)
+
+
   /*
    * Determine precedence level of top-level constructor in an expression
    */
@@ -31,6 +48,7 @@ object print extends PrettyPrinter:
     e match
       case v: Val => 0
       case Var(_) => 0
+      case ObjLit(_) => 0
       case Print(_) | Call(_, _) => 1
       case UnOp(_, _) => 2
       case BinOp(bop, _, _) =>
@@ -52,24 +70,32 @@ object print extends PrettyPrinter:
       case TNumber => "Num"
       case TString => "String"
       case TUndefined => "Undefined"
-      case TFunction(txs, tret) =>
-        parens(ssep(txs map showPTyp, comma <> space)) <+> "=>" <+> showTyp(tret)
-  
-  def showPTyp(pt: (PMode, Typ)): Doc =
-    showPMode(pt._1) <+> showTyp(pt._2)
-  
-  def showTIdList(txs: Params, sep: Doc = comma <> space): Doc = 
-    ssep(txs map showTId, sep)
-    
-  def showPMode(pm: PMode): Doc = pm match
-    case PConst => "const"
-    case PLet => "let"
-    case PName => "name"
-    case PRef => "ref"
-    
-  def showTId(tid: (String, (PMode, Typ))): Doc =
-    showPMode(tid._2._1) <+> tid._1 <> colon <+> showTyp(tid._2._2)
+      case TFunction(targ, tret) =>
+        parens(showTyp(targ)) <+> "=>" <+> showTyp(tret)
+      case TObj(tfs) =>
+        val break = tfs.size > 3
+        val sep = if break then comma <> line else comma <> softline
+        if break 
+        then braces(nest(line <> indent(showFieldList(tfs.toList, sep)) <> line))
+        else braces(nest(emptyDoc <+> showFieldList(tfs.toList, sep) <+> emptyDoc))
 
+
+  def showFieldList(txs: List[(String, (Mut, Typ))], sep: Doc): Doc =
+    ssep(txs map { case (x, (m, t)) => showTId((x, (Some(m), t))) }, sep)
+
+  def showTIdList(tx: Param, sep: Doc = comma <> space): Doc =
+    showTId((tx._1, (None, tx._2)))
+
+  def showMut(m: Mut): Doc = m match
+    case MConst => "const"
+    case MLet => "let"
+      
+  def showTId(tid: (String, (Option[Mut], Typ))): Doc =
+    tid match
+      case (x, (None, t)) =>
+        x <> colon <+> showTyp(t)
+      case (x, (Some(m), t)) =>
+        showMut(m) <+> x <> colon <+> showTyp(t)
 
   /* Associativity of binary operators */
   enum Assoc:
@@ -102,11 +128,12 @@ object print extends PrettyPrinter:
       case Addr(a) => s"@$a"
       case Var(x) => x
       case eu@UnOp(uop, e) =>
-        val op: Doc = uop match
-          case UMinus => "-"
-          case Not => "!"
-          case Deref => "*"
-        op <+> (if prec(e) < prec(eu) then showJS(e) else parens(showJS(e)))
+        val op: Doc => Doc = uop match
+          case UMinus => "-" <+> _
+          case Not => "!" <+> _
+          case Deref => "*" <+> _
+          case FldDeref(f) => _ <> "." <> f
+        op(if prec(e) < prec(eu) then showJS(e) else parens(showJS(e)))
       case BinOp(bop, e1, e2) =>
         val op: Doc = bop match
           case Plus => " + "
@@ -143,10 +170,10 @@ object print extends PrettyPrinter:
         "console.log" <> parens(showJS(e))
       case Decl(m, x, e1, e2) =>
         showDecl(m, x, e1) <> line <> showJS(e2)
-      case Call(e1, List(e@BinOp(Seq, _, _) ) ) if isStmt(e) =>
-        showJS(e1) <> parens(braces(line <> indent(showJS(e)) <> line))
-      case Call(e1, es) =>
-        showJS(e1) <> parens(hsep(es map showJS, comma))
+      case Call(e0, e1@BinOp(Seq, _, _)) if isStmt(e1) =>
+        showJS(e0) <> parens(braces(line <> indent(showJS(e1)) <> line))
+      case Call(e0, e1) =>
+        showJS(e0) <> parens(showJS(e1))
       case Function(p, xs, tann, e) =>
         def showReturn(e: Expr): Doc = e match
           case BinOp(Seq, e1, e2) =>
@@ -157,11 +184,22 @@ object print extends PrettyPrinter:
           case e => line <> "return" <+> showJS(e)
 
         val name = p getOrElse ""
-        val params = showTIdList(xs)
+        val params = parens(showTIdList(xs))
         val rtyp = tann map (":" <+> showTyp(_)) getOrElse emptyDoc
         "function" <+> name <> 
           params <> rtyp <+> braces(nest(showReturn(e)) <> line)
-
+      case ObjLit(fs) =>
+        val hasFun = fs exists { case (_, (_, e)) => hasFunction(e) }
+        val sep =
+          if hasFun then comma <> line
+          else comma <+> softline
+        val fields = fs map {
+          case (f, (mut, e)) => showMut(mut) <+> f <> colon <+> nest(showJS(e))
+        } reduceOption {
+          (f1, f2) => f1 <> sep <> f2
+        } getOrElse emptyDoc
+        if hasFun then braces(nest(nest(line <> fields) <> line))
+        else braces(emptyDoc <+> nest(fields) <+> emptyDoc)  
   end showJS
 
   def prettyAST(x: Any): String = pretty(any(x)).layout

@@ -1,4 +1,4 @@
-name := "hw09-sol"
+name := "hw09"
 
 version := "5.0"
 

@@ -2,6 +2,7 @@ package popl.js
 
 import popl.js.ast.fv
 import popl.js.util.JsException
+import popl.js.util.State
 
 import scala.util.parsing.input.Positional
 
@@ -17,24 +18,25 @@ object ast:
     case TBool
     case TString
     case TUndefined
-    case TFunction(ts: List[(PMode, Typ)], tret: Typ)
+    case TFunction(targ: Typ, tret: Typ)
+    case TObj(fts: Map[Fld, (Mut, Typ)])
 
   /* Memory */
-  class Mem private (map: Map[Addr, Val], nextAddr: Int):
-    def apply(key: Addr): Val = map(key)
-    def get(key: Addr): Option[Val] = map.get(key)
-    def +(kv: (Addr, Val)): Mem = new Mem(map + kv, nextAddr)
+  class Mem private (map: Map[Addr, Con], nextAddr: Int):
+    def apply(a: Addr): Con = map(a)
+    def get(a: Addr): Option[Con] = map.get(a)
+    def +(ak: (Addr, Con)): Mem = new Mem(map + ak, nextAddr)
     def contains(key: Addr): Boolean = map.contains(key)
     
-    def alloc(v: Val): (Mem, Addr) =
+    def alloc(k: Con): (Mem, Addr) =
       val fresha = Addr(nextAddr)
-      (new Mem(map + (fresha -> v), nextAddr + 1), fresha)
+      (new Mem(map + (fresha -> k), nextAddr + 1), fresha)
     
     override def toString: String = map.toString
   
   object Mem:
     def empty = Mem(Map.empty, 1)
-
+    def alloc(k: Con): State[Mem,Addr] = State(m => m.alloc(k))
 
   /* JakartaScript Expressions */
   sealed abstract class Expr extends Positional:
@@ -49,10 +51,16 @@ object ast:
   end Expr
 
   /* Function Parameters */
-  type Params = List[(String, (PMode, Typ))]
+  type Param = (String, Typ)
+
+  /* Memory contents */
+  sealed abstract trait Con
+
+  /* Objects (to be stored in memory) */
+  case class Obj(fvs: Map[Fld, Val]) extends Con
 
   /* Literals and Values */
-  sealed abstract class Val extends Expr
+  sealed abstract class Val extends Expr with Con
 
   case class Num(n: Double) extends Val
 
@@ -83,10 +91,17 @@ object ast:
   case class Print(e1: Expr) extends Expr
 
   /* Functions */
-  case class Function(p: Option[String], xs: Params, t: Option[Typ], e: Expr) extends Val
+  case class Function(p: Option[String], x: Param, t: Option[Typ], e: Expr) extends Val
 
   /* Function Calls */
-  case class Call(e0: Expr, es: List[Expr]) extends Expr
+  case class Call(e0: Expr, e1: Expr) extends Expr
+
+  /* Fields */
+  type Fld = String
+
+  /* Object literals */
+  case class ObjLit(fes: Map[Fld, (Mut, Expr)]) extends Expr
+
 
   /* The above code is essentially equivalent to the following enum definitions given in the
    *  homework description, but behaves better with Scala's type inference.
@@ -127,9 +142,12 @@ object ast:
     /* Functions */
     case Function(p: Option[String], xs: Params, t: Option[Typ], e: Expr)
 
-    /* Function calls */
+    // Function calls
     case Call(e0: Expr, es: List[Expr])
 
+    // Object literals
+    case ObjLit(fes: Map[Fld, (Mut, Expr)])
+ 
   // Values
   type Val = Expr.Num | Expr.Bool | Expr.Str | Expr.Undefined.type | Expr.Function | Expr.Addr
   */
@@ -138,13 +156,12 @@ object ast:
   enum Mut:
     case MConst, MLet
 
-  // Parameter Passing Modes
-  enum PMode:
-    case PConst, PName, PLet, PRef // <~ const, name, let, ref
-
   // Unary operators
   enum Uop:
     case UMinus, Not, Deref // - ! *
+    /* Field dereference */
+    case FldDeref(f: Fld) /* .f */
+    
 
   // Binary operators
   enum Bop:
@@ -168,6 +185,18 @@ object ast:
       case BinOp(Seq, _, e2) => isStmt(e2)
       case _ => false
 
+  /* Check whether expression contains a function */
+  def hasFunction(e: Expr): Boolean = e match
+    case Function(_, _, _, _) => true
+    case BinOp(_, e1, e2) => hasFunction(e1) || hasFunction(e2)
+    case UnOp(_, e1) => hasFunction(e1)
+    case Print(e1) => hasFunction(e1)
+    case Decl(_, _, e1, e2) => hasFunction(e1) || hasFunction(e2)
+    case ObjLit(fs) => fs exists { case (_, (_, e)) => hasFunction(e) }
+    case Call(e1, e2) => (e :: List(e2)) exists hasFunction
+    case _ => false
+
+
   /* Get the free variables of e. */
   def fv(e: Expr): Set[String] =
     e match
@@ -178,8 +207,10 @@ object ast:
       case BinOp(_, e1, e2) => fv(e1) | fv(e2)
       case If(e1, e2, e3) => fv(e1) | fv(e2) | fv(e3)
       case Print(e1) => fv(e1)
-      case Call(e0, es) => fv(e0) | (es.toSet flatMap fv)
-      case Function(p, xs, _, e) => fv(e) -- p -- xs.map(_._1)
+      case Call(e0, e1) => fv(e0) | fv(e1)
+      case Function(p, x, _, e) => fv(e) -- p - x._1
+      case ObjLit(fs) =>       
+        fs.values.foldLeft(Set.empty: Set[String]){ case(acc, (_, e)) => acc | fv(e) }
 
   /* Check whether the given expression is closed. */
   def closed(e: Expr): Boolean = fv(e).isEmpty

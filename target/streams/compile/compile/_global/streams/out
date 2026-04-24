@@ -1,0 +1,8 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:223:8 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m223 |[0m        fes transform { [33mcase[0m (_, (m, e)) => (m, substX(e)) }[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m   Found:    Map[popl.js.ast.Fld, (popl.js.ast.Mut, popl.js.ast.Expr)][0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m   Required: popl.js.ast.Expr[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

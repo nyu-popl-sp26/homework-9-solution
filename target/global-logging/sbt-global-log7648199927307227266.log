@@ -1,0 +1,99 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, Some(5c6934da-8152-4e21-97fe-0dd6e02f07f1), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/elaineli/Programs/nyu-popl-sp26/hw09/target/scala-3.8.1/test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mhw09Spec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle object literals *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.typeInfer(hw09.scala:146)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.inferType(hw09.scala:372)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.testFun$proxy1$1(hw09Spec.scala:13)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.$init$$$anonfun$1(hw09Spec.scala:11)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply$$anonfun$1(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:31)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle field dereference expressions *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.typeInfer(hw09.scala:68)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.inferType(hw09.scala:372)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.testFun$proxy2$1(hw09Spec.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.$init$$$anonfun$2(hw09Spec.scala:18)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply$$anonfun$1(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:31)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle field assignment expressions *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.typeInfer(hw09.scala:109)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.inferType(hw09.scala:372)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.testFun$proxy3$1(hw09Spec.scala:29)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.$init$$$anonfun$3(hw09Spec.scala:27)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply$$anonfun$1(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:31)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle field dereference expressions *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.$anonfun$10$$anonfun$1(hw09.scala:355)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.apply(State.scala:4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.evaluate(hw09.scala:370)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle field assignment expressions *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.$anonfun$10$$anonfun$1(hw09.scala:355)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.apply(State.scala:4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.evaluate(hw09.scala:370)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle aliasing *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:401)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.$anonfun$10$$anonfun$1(hw09.scala:355)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.flatMap$$anonfun$1(State.scala:14)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.map$$anonfun$1(State.scala:8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.js.util.State.apply(State.scala:4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09$.evaluate(hw09.scala:370)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at popl.hw09Spec.testFun$proxy6$1(hw09Spec.scala:79)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 454 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 6[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 0, failed 6, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 6 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	popl.hw09Spec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 3 s, completed Apr 23, 2026, 9:46:06 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

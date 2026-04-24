@@ -1,6 +1,6 @@
 ## Homework 9
 
-The deadline for Homework 9 is ~Wednesday, November 22~ Monday, November 27, 8pm. The late submission deadline is ~Tuesday, November 28~ Thursday, November 30, 4pm.
+The deadline for Homework 9 is Thursday, April 30, 2pm. 
 
 Refer to the homework handout [`hw09.pdf`](hw09.pdf) for details about the assignment. This file provides some information to help you get started with setting up your development environment for the homework assignments.
 
@@ -12,14 +12,14 @@ provided in the announcement of this homework assignment on
 Brightspace. After clicking on the link, you will receive an email from
 GitHub, when your copy of the repository is ready. It will be
 available at
-`https://github.com/nyu-popl-fa21/hw09-<YOUR-GITHUB-USERNAME>`.
+`https://github.com/nyu-popl-sp26/homework-9-<YOUR-GITHUB-USERNAME>`.
 Note that this may take a few minutes.
 
-* Open a browser at `https://github.com/nyu-popl-fa23/hw09-<YOUR-GITHUB-USERNAME>` with your Github username inserted at the appropriate place in the URL.
+* Open a browser at `https://github.com/nyu-popl-sp26/homework-9-<YOUR-GITHUB-USERNAME>` with your Github username inserted at the appropriate place in the URL.
 * Choose a place on your computer for your homework assignments to reside and open a terminal to that location.
 * Execute the following git command: <br/>
   ```bash
-  git clone https://github.com/nyu-popl-fa23/hw09-<YOUR-GITHUB-USERNAME>.git hw09
+  git clone https://github.com/nyu-popl-sp26/homework-9-<YOUR-GITHUB-USERNAME>.git hw09
   cd hw09
   ```
 
@@ -37,7 +37,7 @@ The assignment consists of a non-coding part (Problem 1) and a coding part (Prob
    ``` 
    relative to the root directory of the repository. Follow the instructions in the
    [in-class-code](https://github.com/nyu-popl-fa23/in-class-code)
-   repository to import the project into InteliJ (or use your other
+   repository to import the project into IntelliJ (or use your other
    favorite IDE or editor to work on the assignment).
 
    You can implement the solutions by replacing the `???`
@@ -64,7 +64,7 @@ You can replace "solution" by a more meaningful commit message.
 
 Refresh your browser window pointing at
 ```
-https://github.com/nyu-popl-fa23/hw09-<YOUR-GITHUB-USERNAME>/
+https://github.com/nyu-popl-sp26/hw09-<YOUR-GITHUB-USERNAME>/
 ```
 and double-check that your solution has been uploaded correctly.
 
