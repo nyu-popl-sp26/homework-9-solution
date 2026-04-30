@@ -1,8 +1,42 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:223:8 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m223 |[0m        fes transform { [33mcase[0m (_, (m, e)) => (m, substX(e)) }[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m   Found:    Map[popl.js.ast.Fld, (popl.js.ast.Mut, popl.js.ast.Expr)][0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m   Required: popl.js.ast.Expr[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:481:14 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m481 |[0m          [33mvar[0m [36mcurrMem[0m: [35mMem[0m = s[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          refinement cannot have a right-hand side[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:482:14 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m482 |[0m          [33mvar[0m [36mcurrObj[0m = [33mMap[0m.empty[[35mFld[0m,[35mVal[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          refinement cannot have a right-hand side[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E103] Syntax Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:483:10 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m483 |[0m          [33mfor[0m ((fi, (_, ei)) <- fes) {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Illegal start of declaration[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:489:14 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m489 |[0m          [33mval[0m (s2, a) = [33mMem[0m.alloc([33mObj[0m(currObj))(currMem)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          this kind of definition cannot be a refinement[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E103] Syntax Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:490:10 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m490 |[0m          (s2, a)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Illegal start of declaration[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E040] Syntax Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:491:8 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m491 |[0m        })[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m        ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m        unindent expected, but '}' found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:479:14 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m479 |[0m        [33mState[0m(s: [35mMem[0m => {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m              ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m              Not found: s[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/src/main/scala/popl/hw09.scala:490:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m490 |[0m          (s2, a)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                 ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m        Found:    Unit[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m        Required: popl.js.util.State[popl.js.ast.Mem, popl.js.ast.Val][0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m8 errors found[0m

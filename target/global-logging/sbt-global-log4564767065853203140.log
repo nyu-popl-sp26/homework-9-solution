@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, Some(ba573589-281b-45d4-84b9-b36aa463ea09), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mhw09Spec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle object literals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle field dereference expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtypeInfer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle field assignment expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle field dereference expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle field assignment expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32meval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle aliasing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 414 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 6[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 6, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 1 s, completed Apr 30, 2026, 11:09:42 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

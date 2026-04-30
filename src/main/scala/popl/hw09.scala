@@ -245,38 +245,72 @@ object hw09 extends js.util.JsApp:
           case _ => throw StuckError(e)
     val sm: State[Mem,Val] = e match
       // EvalVal
-      case v: Val => State insert v
+      case v: Val =>
+        State((s: Mem) => (s,v))
+//        State insert v
+
 
       // EvalPrint
-      case Print(e) => 
-        for
-          v <- eval(e)
-        yield
-          println(v.prettyVal) 
-          Undefined
+      case Print(e) =>
+        State(s =>
+          {
+            val (sp,v) = eval(e)(s)
+            println(v.prettyVal)
+            (sp,Undefined)
+          }
+        )
+//        for
+//          v <- eval(e)
+//        yield
+//          println(v.prettyVal)
+//          Undefined
+
 
       // EvalUMinus  
       case UnOp(UMinus, e1) =>
-        for
-          n1 <- eToNum(e1)
-        yield Num(- n1)
+        State(s =>
+          {
+            val (sp,n1) = eToNum(e1)(s)
+            (sp, Num(- n1))
+          }
+        )
+//        for
+//          n1 <- eToNum(e1)
+//        yield Num(- n1)
 
       // EvalNot  
       case UnOp(Not, e1) =>
-        for
-          b <- eToBool(e1)
-        yield Bool(! b)
+        State(s => {
+          val (sp,b) = eToBool(e1)(s)
+          (sp, Bool(! b))
+        })
+//        for
+//          b <- eToBool(e1)
+//        yield Bool(! b)
 
       // EvalDerefVar  
       case UnOp(Deref, a: Addr) =>
-        for v <- readVal(a) yield v
+        State(s =>
+          s.get(a) match
+            case Some(v: Val) => (s,v)
+            case _ => throw StuckError(UnOp(Deref,a)))
+//        for v <- readVal(a) yield v
+
       
       // EvalDerefFld
       case UnOp(FldDeref(f), e) =>
-        for
-          a <- eToAddr(e)
-          fs <- readObj(a)
-        yield fs getOrElse(f, throw StuckError(e))
+        State(s => {
+          val (sp,a) = eToAddr(e)(s)
+          sp.get(a) match
+            case Some(o: Obj) => (o.fvs.get(f) match
+              case Some(v) => (sp,v)
+              case _ => throw StuckError(e))
+            case _ => throw StuckError(e)
+        })
+//        for
+//          a <- eToAddr(e)
+//          fs <- readObj(a)
+//        yield fs getOrElse(f, throw StuckError(e))
 
       // EvalPlusNum, EvalPlusStr  
       case BinOp(Plus, e1, e2) =>
@@ -299,42 +333,72 @@ object hw09 extends js.util.JsApp:
           case Div => Num(n1 / n2)
 
       // EvalAndTrue, EvalAndFalse  
-      case BinOp(And, e1, e2) => 
-        for
-          b <- eToBool(e1)
-          v <- if b then eval(e2) else State.insert[Mem,Val](Bool(b))
-        yield v
+      case BinOp(And, e1, e2) =>
+        State(s => {
+          val (sp, b1) = eToBool(e1)(s)
+          b1 match
+            case true => eval(e2)(sp)
+            case false => (sp, Bool(false))
+        })
+//        for
+//          b <- eToBool(e1)
+//          v <- if b then eval(e2) else State.insert[Mem,Val](Bool(b))
+//        yield v
 
       // EvalOrTrue, EvalOrFalse
       case BinOp(Or, e1, e2) =>
-        for
-          b <- eToBool(e1)
-          v <- if b then State.insert[Mem,Val](Bool(b)) else eval(e2)
-        yield v
+        State(s => {
+          val (sp,b1) = eToBool(e1)(s)
+          b1 match
+            case true => (sp,Bool(true))
+            case false => eval(e2)(sp)
+        })
+//        for
+//          b <- eToBool(e1)
+//          v <- if b then State.insert[Mem,Val](Bool(b)) else eval(e2)
+//        yield v
 
       // EvalSeq  
       case BinOp(Seq, e1, e2) =>
-        for
-          _ <- eval(e1)
-          v2 <- eval(e2)
-        yield v2
+        State(s => {
+          val (sp,v1) = eval(e1)(s)
+          val (spp,v2) = eval(e2)(sp)
+          (spp,v2)
+        })
+//        for
+//          _ <- eval(e1)
+//          v2 <- eval(e2)
+//        yield v2
 
       // EvalAssignVar  
       case BinOp(Assign, UnOp(Deref, a: Addr), e2) =>
-        for
-          v2 <- eval(e2)
-          _ <- State.write{ (m: Mem) => m + (a -> v2) }
-        yield v2
+        State(s => {
+          val (sp,v2) = eval(e2)(s)
+          val spp = sp + (a -> v2)
+          (spp,v2)
+        })
+//        for
+//          v2 <- eval(e2)
+//          _ <- State.write{ (m: Mem) => m + (a -> v2) }
+//        yield v2
       
       // EvalAssignFld 
       case BinOp(Assign, UnOp(FldDeref(f), e1), e2) =>
-        for
-          v2 <- eval(e2)
-          a  <- eToAddr(e1)
-          o <- readObj(a)
-          _ = if !o.contains(f) then throw StuckError(e1)
-          _  <- State.write { (m: Mem) => m + (a -> Obj(o + (f -> v2))) }
-        yield v2
+        State(s => {
+          val (sp,v2) = eval(e2)(s)
+          val (spp,a) = eToAddr(e1)(sp)
+          val (sppp,o) = readObj(a)(spp)
+          o.get(f) match
+            case None => throw StuckError(e1)
+            case _ => (sppp + (a -> Obj(o + (f -> v2))), v2)
+        })
+//        for
+//          v2 <- eval(e2)
+//          a  <- eToAddr(e1)
+//          o <- readObj(a)
+//          _ = if !o.contains(f) then throw StuckError(e1)
+//          _  <- State.write { (m: Mem) => m + (a -> Obj(o + (f -> v2))) }
+//        yield v2
 
       // EvalEqual, EvalInequal*  
       case BinOp(bop@(Eq|Ne|Lt|Gt|Le|Ge), e1, e2) =>
@@ -355,53 +419,103 @@ object hw09 extends js.util.JsApp:
 
       // EvalConstDecl
       case Decl(MConst, x, ed, eb) =>
-        for 
-          vd <- eval(ed)
-          v <- eval(subst(eb, x, vd))
-        yield v
+        State(s => {
+          val (sp,vd) = eval(ed)(s)
+          val (spp,vb) = eval(subst(eb,x,vd))(sp)
+          (spp,vb)
+        })
+//        for
+//          vd <- eval(ed)
+//          v <- eval(subst(eb, x, vd))
+//        yield v
 
       // EvalLetDecl
       case Decl(MLet, x, ed, eb) =>
-        for
-          vd <- eval(ed)
-          a <- Mem.alloc(vd)
-          v <- eval(subst(eb, x, UnOp(Deref, a)))
-        yield v
+        State(s => {
+          val (sp,vd) = eval(ed)(s)
+          val (spp,a) = Mem.alloc(vd)(sp)
+          eval(subst(eb,x,UnOp(Deref,a)))(spp)
+        })
+//        for
+//          vd <- eval(ed)
+//          a <- Mem.alloc(vd)
+//          v <- eval(subst(eb, x, UnOp(Deref, a)))
+//        yield v
 
       // EvalCallConst
       case Call(v0@Function(None, (x1, _), _, eb), e1) =>
-        for
-          v1 <- eval(e1)
-          v  <- eval(subst(eb, x1, v1))
-        yield v
+        State(s => {
+          val (sp,v1) = eval(e1)(s)
+          eval(subst(eb,x1,v1))(sp)
+        })
+//        for
+//          v1 <- eval(e1)
+//          v  <- eval(subst(eb, x1, v1))
+//        yield v
       
       // EvalCallRec
       case Call(e0, es) =>
-        for
-          v0 <- eval(e0)
-          v <- v0 match
-            case v0@Function(Some(x0), _, _, eb) =>
-              val v0p = v0.copy(p=None, e=subst(eb, x0, v0))
-              eval(Call(v0p, es))
-            case _ => 
-              eval(Call(v0, es))
-        yield v
+        State(s => {
+          val (sp,v0) = eval(e0)(s)
+          v0 match
+            case Function(Some(x0),x,t,eb) => {
+              eval(Call(Function(None,x,t,subst(eb,x0,v0)),es))(sp)
+            }
+            case _ => throw StuckError(e0)
+        })
+//        for
+//          v0 <- eval(e0)
+//          v <- v0 match
+//            case v0@Function(Some(x0), _, _, eb) =>
+//              val v0p = v0.copy(p=None, e=subst(eb, x0, v0))
+//              eval(Call(v0p, es))
+//            case _ =>
+//              eval(Call(v0, es))
+//        yield v
         
       // EvalObjLit
       case ObjLit(fes) =>
-        val sm0 = State.insert[Mem,Map[Fld,Val]](Map.empty)
-        fes.foldLeft(sm0) { 
-          case (sm, (fi, (_, ei))) =>
-            // Part (1) of Problem 2(c)
-            for {
-              o <- sm // extract from 'sm' the field/value map 'o' constructed so far 
-              vi <- eval(ei)
-            } yield o + (fi -> vi)
-        } flatMap {
-          o =>
-            // Part (2) of Problem 2(c)
-            Mem.alloc(Obj(o))
-        }
+        // Option 1: imperative style for-loop
+        State((s: Mem) => {
+          // Iterate over fields and build object to store in memory
+          var currMem = s
+          var currObj = Map.empty[Fld,Val]
+          for ((fi, (_, ei)) <- fes) {
+            val (s1, vi) = eval(ei)(currMem)
+            currMem = s1
+            currObj = currObj + (fi -> vi)
+          }
+          // Allocate memory in currMem
+          val (s2, a) = Mem.alloc(Obj(currObj))(currMem)
+          (s2, a)
+        })
+
+        // Option 2: functional foldLeft
+        State(s => {
+          val (s1, currObj) = fes.foldLeft((s, Map.empty[Fld, Val])) {
+            case ((currMem, currObj), (fi, (_, ei))) =>
+              val (s1, vi) = eval(ei)(currMem)
+              (s1, currObj + (fi -> vi))
+          }
+          val (s2, a) = Mem.alloc(Obj(currObj))(s1)
+          (s2, a)
+        })
+
+        // Option 3: monadic style
+//        val sm0 = State.insert[Mem,Map[Fld,Val]](Map.empty)
+//        fes.foldLeft(sm0) {
+//          case (sm, (fi, (_, ei))) =>
+//            // Part (1) of Problem 2(c)
+//            for {
+//              o <- sm // extract from 'sm' the field/value map 'o' constructed so far
+//              vi <- eval(ei)
+//            } yield o + (fi -> vi)
+//        } flatMap {
+//          o =>
+//            // Part (2) of Problem 2(c)
+//            Mem.alloc(Obj(o))
+//        }
+
       case Var(_) | UnOp(Deref, _) | BinOp(_, _, _) => 
         throw StuckError(e) // this should never happen
     
