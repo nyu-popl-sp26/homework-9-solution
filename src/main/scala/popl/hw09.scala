@@ -461,7 +461,7 @@ object hw09 extends js.util.JsApp:
             case Function(Some(x0),x,t,eb) => {
               eval(Call(Function(None,x,t,subst(eb,x0,v0)),es))(sp)
             }
-            case _ => throw StuckError(e0)
+            case _ => eval(Call(v0, es))(sp)
         })
 //        for
 //          v0 <- eval(e0)
@@ -490,18 +490,18 @@ object hw09 extends js.util.JsApp:
           (s2, a)
         })
 
-        // Option 2: functional foldLeft
-        State(s => {
-          val (s1, currObj) = fes.foldLeft((s, Map.empty[Fld, Val])) {
-            case ((currMem, currObj), (fi, (_, ei))) =>
-              val (s1, vi) = eval(ei)(currMem)
-              (s1, currObj + (fi -> vi))
-          }
-          val (s2, a) = Mem.alloc(Obj(currObj))(s1)
-          (s2, a)
-        })
+        // Option 2a: functional foldLeft in explicit style
+//        State(s => {
+//          val (s1, currObj) = fes.foldLeft((s, Map.empty[Fld, Val])) {
+//            case ((currMem, currObj), (fi, (_, ei))) =>
+//              val (s1, vi) = eval(ei)(currMem)
+//              (s1, currObj + (fi -> vi))
+//          }
+//          val (s2, a) = Mem.alloc(Obj(currObj))(s1)
+//          (s2, a)
+//        })
 
-        // Option 3: monadic style
+        // Option 3: functional foldLeft in monadic style
 //        val sm0 = State.insert[Mem,Map[Fld,Val]](Map.empty)
 //        fes.foldLeft(sm0) {
 //          case (sm, (fi, (_, ei))) =>

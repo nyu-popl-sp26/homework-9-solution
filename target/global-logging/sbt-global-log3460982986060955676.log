@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(9d679902-894c-4fad-9a9e-fe7887ab6de9), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 7 Scala sources to /Users/elaineli/Programs/nyu-popl-sp26/homework-9-solution/target/scala-3.8.1/classes ...[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 4 s, completed May 3, 2026, 9:14:52 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
